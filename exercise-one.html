@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            height: 98px;
+            width: 200px;
+            background-image: url("mistore_logo.png");
+        }
+        .main{
+            height: 588px;
+            width: 2560px;
+            background-image: url("main.jpg");
+        }
+        .login{
+            background-color: white;
+            margin-left: 1400px;
+            height: 500px;
+            width: 400px;
+            position: absolute;
+            top: 150px;
+
+        }
+        ul li{
+            float: left;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            margin: 2px;
+           font-size: 10px;
+        }
+        div ul li{
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            background-image: url("icons_type.png");
+            background-color: #0000FF;
+            margin-left: 45px;
+        }
+        .icon li{
+            height: 22px;
+            width: 22px;
+        }
+        .qq{
+            background-position: -17px 2px;
+        }
+        .weibo{
+            background-position: -34px 2px;
+        }
+        .pay{
+            background-position: -56px 3.5px;
+        }
+        .weixin{
+            background-position: -84px 2.5px;
+        }
+        #a1:hover{
+            color: gold;
+        }
+        #a2:hover{
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+<div class="title"></div>
+<div class="main">
+    <div class="login">
+        <div style="height: 60px;width:400px;margin: 7px;margin-left: 70px">
+            <a id="a1" style="font-size: 30px" href="" >账号登录</a>
+            <div style="display: inline-block;margin-left: 5px;height: 30px;width: 3px;background-color: darkgrey"></div>
+            <a id="a2" href="" style="font-size: 30px">扫码登录</a>
+        </div>
+        <div style="width: 200px;height: 100px;margin-left: 50px">
+            <div>
+                <input type="text" style="height: 40px;width: 300px" placeholder="&nbsp;&nbsp;&nbsp;邮箱/手机号码/小米ID">
+            </div>
+            <div style="margin-top: 10px">
+                <input type="password" style="height: 40px;width: 300px" placeholder="&nbsp;&nbsp;&nbsp;密码">
+            </div>
+        </div>
+        <div style="width: 300px;height: 60px;margin: 20px 0px;margin-left: 50px">
+            <input style="background-color: orange;width: 300px;height: 50px;color: white"type="button" value="登录">
+        </div>
+        <div style="height: 100px;width: 400px;margin-left: 50px">
+            <a href="">手机短信登录</a>
+            <a href="">立即注册</a>
+            <a href="">忘记密码？</a>
+        </div>
+        <fieldset class="field" style="margin-left: 35px; ;width: 300px;border-right: none;border-left: none;border-bottom: none">
+            <legend align="center"style="color: darkgrey">其他登录方式</legend>
+        </fieldset>
+        <div class="icon" >
+            <ul>
+                <li class="qq"></li>
+                <li class="weibo"></li>
+                <li class="pay"></li>
+                <li class="weixin"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
