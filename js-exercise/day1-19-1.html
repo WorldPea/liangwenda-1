@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <script>
+//        a = new Object();
+//        a.name = "李华文";
+//        a.sex = "女人";
+//        document.write(a.name + a.sex);
+//        person=new Object();
+//        person.firstname="Bill";
+//        person.lastname="Gates";
+//        person.age=56;
+//        person.eyecolor="blue";
+//        document.write(person.firstname + " is " + person.age + " years old.");
+        person_num = window.prompt("几个人吃饭？");
+        var person = new Array;
+        for (var i=0; i<person_num; i++)
+        {
+            person[i] = window.prompt("第"+(i+1)+"人是谁？");
+        }
+        for (var j=0; j<person_num; j++)
+        {
+            random_num = Math.floor(Math.random() * 10);
+            switch(random_num)
+            {
+                case 0:
+                    alert(person[j]+"吃鱼香肉丝");
+                    break
+                case 1:
+                    alert(person[j]+"吃水果沙拉");
+                    break
+                case 2:
+                    alert(person[j]+"吃清蒸鱼");
+                    break
+                case 3:
+                    alert(person[j]+"吃麻辣烫");
+                    break
+                case 4:
+                    alert(person[j]+"吃鸡公煲");
+                    break
+                case 5:
+                    alert(person[j]+"吃皮蛋瘦肉粥");
+                    break
+            }
+        }
+    </script>
+</body>
+</html>

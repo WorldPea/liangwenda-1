@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var num = Math.floor(Math.random() * 10);
+        var flag = true;
+        function justy() {
+
+            try{
+
+                while (flag)
+                {
+                    var x = document.getElementById("input-text").value;
+
+                    if (x == "")
+                        throw "值为空";
+                    else if (isNaN(x))
+                        throw "不是数字";
+                    else if (x > num)
+                        throw "你猜的值太大！";
+                    else if (x < num)
+                        throw "你猜的值太小";
+                    else
+                        flag = false;
+                        document.getElementById("p").innerHTML = "恭喜您！你猜对了！";
+                }
+            }
+            catch (err){
+                document.getElementById("p").innerHTML = err;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>请输入5-10之间的数</h1>
+    <input id="input-text" type="text">
+    <button onclick="justy()">点击我测试大小是否正确</button>
+    <p id="p"></p>
+</body>
+</html>
