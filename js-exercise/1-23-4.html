@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        .header{
+            width: 350px;
+            height: 140px;
+            margin: auto;
+            text-align: center;
+        }
+        .button{
+            position: relative;
+            margin: auto;
+            width: 300px;
+            height: 30px;
+            margin: auto;
+        }
+        /*.button button{*/
+        /*text-align: center;*/
+        /*line-height: 50px;*/
+        /*width: 30px;*/
+        /*height: 20px;*/
+        /*font-size: 15px;*/
+        /*}*/
+        #box{
+            text-align: center;
+            line-height: 100px;
+            top: 50px;
+            position: relative;
+            background: #dddddd;
+            height: 100px;
+            width: 100px;
+            margin: auto;display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div>
+        <button>变宽</button>
+        <button>变高</button>
+        <button>变色</button>
+        <button>隐藏</button>
+        <button>重置</button>
+    </div>
+    <div id="box"></div>
+</div>
+<script>
+    var oBox = document.getElementById("box");
+    var oBtn = document.getElementsByTagName("button");
+    var arr1 = ["width","height","background-color","display"]
+    var arr2 = ["300px","300px","red","none"];
+    console.log(oBtn);
+    for(var i=0; i < oBtn.length; i++)
+    {
+        oBtn[i].index = i;
+        oBtn[i].onclick = function () {
+            var styleName = arr1[this.index];
+            var styleVal = arr2[this.index];
+            this.index == 4 ? oBox.style.cssText="" : oBox.style[styleName] = styleVal;
+        }
+
+    }
+</script>
+</body>
+</html>

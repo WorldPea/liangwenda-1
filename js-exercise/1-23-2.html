@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<script>-->
+        <!--题目一-->
+        <!--var num = parseInt(window.prompt("请你输入x:"));-->
+        <!--var result = 4*num*num+3*num+2;-->
+        <!--console.log(result);-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--题目二-->
+        <!--var num_1 = parseInt(window.prompt('输入第一个数'));-->
+        <!--var num_2 = parseInt(window.prompt('输入第二个数'));-->
+        <!--function Min(a, b) {-->
+            <!--if (a<=b){-->
+                <!--return a;-->
+            <!--}-->
+            <!--else{-->
+                <!--return b;-->
+            <!--}-->
+        <!--}-->
+        <!--console.log(Min(num_1, num_2));-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--题目三-->
+        <!--function PanDuan(a) {-->
+            <!--if (a%3==0 && a%5==0 && a%7==0){-->
+                <!--return 1;-->
+            <!--}-->
+            <!--else{-->
+                <!--return 0;-->
+            <!--}-->
+        <!--}-->
+        <!--var Count = 0;-->
+        <!--for(var i=1; i<1000; i++){-->
+            <!--if(PanDuan(i)){-->
+                <!--document.write("&nbsp"+i);-->
+                <!--Count++;-->
+                <!--if(Count%6==0){-->
+                    <!--document.write("<br> ");-->
+                <!--}-->
+            <!--}-->
+
+        <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+    <!--//        题目四-->
+        <!--var iCount = 0;-->
+        <!--for(var i=100; i<1000; i++){-->
+            <!--var flag = true;-->
+            <!--for(var j = 2; j < i; j++){-->
+                <!--if (i % j == 0){-->
+                    <!--flag = false;-->
+                    <!--break;-->
+                <!--}-->
+            <!--}-->
+            <!--if(flag){-->
+                <!--iCount++;-->
+                <!--document.write(i+"&nbsp");-->
+                <!--if(iCount%6==0){-->
+                    <!--document.write("<br>");-->
+                <!--}-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--&lt;!&ndash;题目五&ndash;&gt;-->
+        <!--function factorial(n) {-->
+            <!--var result = 1;-->
+            <!--for(var i=1; i<=n; i++){-->
+                <!--result *=i;-->
+            <!--}-->
+            <!--return result;-->
+        <!--}-->
+        <!--var End_num = factorial(12)-factorial(10);-->
+        <!--document.write(End_num);-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--&lt;!&ndash;题目六&ndash;&gt;-->
+        <!--for(var i=0; i<5; i++){-->
+            <!--for(var j=5; j>i; j&#45;&#45;){-->
+                <!--document.write("&nbsp");-->
+            <!--}-->
+            <!--for(var z=0; z<i+1; z++){-->
+                <!--document.write("* ");-->
+            <!--}-->
+            <!--document.write("<br>");-->
+        <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--题目7-->
+        <!--//1、1、2、3、5、8、13、21-->
+        <!--function Fibonacci(n) {-->
+            <!--if(n<=2){-->
+                <!--return 1;-->
+            <!--}-->
+            <!--else{-->
+                <!--return Fibonacci(n-1)+Fibonacci(n-2);-->
+            <!--}-->
+        <!--}-->
+        <!--console.log(Fibonacci(8));-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--//题目7-->
+        <!--var result = [1,1];-->
+        <!--for(var i=2; i<8; i++){-->
+            <!--result[i]=result[i-1]+result[i-2];-->
+        <!--}-->
+        <!--console.log(result[5-1]);-->
+    <!--</script>-->
+    <script>
+        var min = 0;
+       var a = [9,8,7,6,5,4,3,2,1,0];
+       for(var i=0; i<a.length; i++){
+           a[min] = a[i]; 
+       }
+    </script>
+</body>
+</html>

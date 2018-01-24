@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       #show{
+
+           height: 500px;
+           width: 500px;
+       }
+    </style>
+</head>
+<body>
+<div>
+    <div id="show" style="margin: 0 auto">
+        <img id="big-img" src="image/3.png" alt="">
+    </div>
+    <div style="margin: 0 auto">
+        <ul style="list-style-type: none">
+            <li link="image/3.png"><img src="image/3.png" style="height: 100px;width: 100px" alt=""></li>
+            <li link="image/bg.jpg"><img src="image/bg.jpg" style="height: 100px;width: 100px" alt=""></li>
+            <li link="image/bg2.jpg"><img src="image/bg2.jpg" style="height: 100px;width: 100px" alt=""></li>
+            <li link="image/3.png"><img src="image/3.png" style="height: 100px;width: 100px" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        var aImg = document.getElementsByTagName("li");
+        var BigImg = document.getElementById("big-img");
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].onmouseover = function () {
+               var SmallImg = this.getAttribute("link");
+               console.log(SmallImg);
+                BigImg.setAttribute("src",SmallImg);
+            }
+
+        }
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /**{*/
+            /*margin: 0px;*/
+            /*padding: 0px;*/
+        /*}*/
+        /*#head{*/
+            /*margin: 30px auto;*/
+            /*width: 350px;*/
+            /*height: 140px;*/
+            /*text-align: center;*/
+            /*padding-top: 80px;*/
+        /*}*/
+        /*input{*/
+            /*font-size: 20px;*/
+        /*}*/
+        /*#box{*/
+            /*margin: 0 auto;*/
+            /*height: 200px;*/
+            /*width: 200px;*/
+            /*background: #000000;*/
+        /*}*/
+        #head{
+            width: 350px;
+            height: 140px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #box{
+            margin: 0 auto;
+            height: 100px;
+            width: 100px;
+            background: #000000;
+        }
+        button{
+
+        }
+    </style>
+</head>
+<body>
+<div id="head">
+    <button>变宽</button>
+    <button>变高</button>
+    <button>变色</button>
+    <button>隐藏</button>
+    <button>重置</button>
+</div>
+<div id="box"></div>
+<script>
+    var aBtn = document.getElementsByTagName("button");
+    var oBox = document.getElementById("box");
+    var arr1 = ["width","height","background-color","display"];
+    var arr2 = ["300px","300px","red","none"];
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index = i;
+        aBtn[i].onclick = function () {
+            if(this.index == 4){
+                oBox.style.cssText = "";
+            }
+            else {
+                oBox.style[arr1[this.index]] = arr2[this.index];
+            }
+        }
+    }
+</script>
+<!--<div>-->
+    <!--<div id="head">-->
+        <!--<input type="button" value="变宽">-->
+        <!--<input type="button" value="变高">-->
+        <!--<input type="button" value="变色">-->
+        <!--<input type="button" value="隐藏">-->
+        <!--<input type="button" value="重置">-->
+    <!--</div>-->
+    <!--<div id="box"></div>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var oBox = document.getElementById("box")-->
+    <!--var aBtn = document.getElementsByTagName("input");-->
+    <!--var arr1 = ["width","height","background-color","display"];-->
+    <!--var arr2 = ["300px","300px","red","none"];-->
+    <!--console.log(aBtn);-->
+    <!--for(var i=0; i<aBtn.length; i++){-->
+        <!--aBtn[i].index = i;-->
+        <!--aBtn[i].onclick = function () {-->
+            <!--var styleName = arr1[this.index];-->
+            <!--var styleVal = arr2[this.index];-->
+            <!--if(this.index == 4){-->
+                <!--oBox.style.cssText = "";-->
+            <!--}-->
+            <!--else{-->
+                <!--oBox.style[styleName] = styleVal;-->
+            <!--}-->
+<!--//            this.index == 4 ? oBox.style.cssText = "" : oBox.style[styleName] = styleVal;-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+</body>
+</html>

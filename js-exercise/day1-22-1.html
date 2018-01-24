@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+    <script>
+//        a = [];
+//        a[0] = 1;
+//        a.push(2);
+//        a.push(3);
+//        a.shift();
+//        a.unshift(4);
+//        console.log(a);
+//        var op = {
+//            "+":function (a, b) {
+//                return a+b;
+//            },
+//            "-":function (a,b) {
+//                return a-b;
+//            }
+//        }
+//        var c = op["+"];
+//        document.write(c);
+//        console.time();
+//        var A = {
+//            a:[1,2,3]
+//        }
+//        var B = {
+//            b:[]
+//        }
+//        for(var i=0; i<3; i++)
+//        {
+//            B.b[i] = A.a[i];
+//        }
+//        console.log(B);
+//        console.timeEnd();
+        console.time();
+        var C = {
+            c:[1,2,3]
+        }
+        var D = {
+            d:[]
+        }
+        with(D)
+        {
+            for(var j=0; j<3; j++)
+            {
+                d[j] = C.c[j];
+            }
+
+        }
+        console.log(D)
+        console.timeEnd();
+    </script>
+    <!--<script>-->
+        <!--A = {-->
+            <!--a:2,-->
+            <!--b:3-->
+        <!--}-->
+        <!--document.write(A.a);-->
+        <!--document.getElementById("h1").innerHTML = "李龟文";-->
+    <!--</script>-->
+    <!--<h1 id="h1">aaaaaa</h1>-->
+    <!--<script>-->
+        <!--document.write("<div class='a'><h1>aaaaaaaaaaaaaaaaaa</h1></div>");-->
+    <!--</script>-->
+    <!--<h1>测试</h1>-->
+    <!--<script async src="js/day1-122-1.1.js"></script>-->
+    <!--<script async src="js/day1-22-1.js"></script>-->
+    <!--<noscript>你的游览器不支持！</noscript>-->
+</body>
+</html>

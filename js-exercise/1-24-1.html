@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            width: 150px;
+            list-style-type: none;
+            border: 1px solid #dddddd;
+            text-align: center;
+            display: none;
+            position: absolute;
+        }
+        ul li{
+            border-bottom: 1px solid #dddddd;
+        }
+    </style>
+<body>
+<ul id="ul-menu" class="ul-cn">
+    <li links="www.baidu.com">设置待办</li>
+    <li links="www.sina.com">设置已读</li>
+    <li links="user.qzone.qq.com/1107591183/infocenter">设置未读</li>
+    <li links="user.qzone.qq.com/840255440?source=namecardhoverqzone">删除邮件</li>
+</ul>
+<script>
+    var oUl = document.getElementById("ul-menu");
+    var aLi = document.getElementsByTagName("li");
+    document.oncontextmenu = function (e) {
+        e = e || window.event;
+       oUl.style.display = "block";
+       oUl.style.top = e.clientY+"px";
+       oUl.style.left = e.clientX+"px";
+       return false;
+    }
+
+    for(var i=0; i<aLi.length; i++) {
+        aLi[i].onclick = function () {
+            oUl.style.display = "none";
+            var LiLink = this.getAttribute("links");
+            location.href = "http://" + LiLink;
+        }
+    }
+</script>
+</body>
+</html>

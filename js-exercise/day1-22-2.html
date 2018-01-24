@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" >
+
+    </div>
+    <script>
+        document.getElementById("box").onmouseout = function(){//onmouseout()鼠标移出
+            console.log("out");
+        }
+        document.getElementById("box").onmouseover = function(){//onmouseover()鼠标移入
+            console.log("over");
+        }
+        document.getElementById("box").ondblclick = function(){//onmouseover()鼠标移入
+            console.log("双击");
+        }
+        document.getElementById("box").onmousedown = function(){//onmouseover()鼠标移入
+            console.log("按下不放");
+        }
+        document.getElementById("box").onmouseup = function(){//onmouseover()鼠标移入
+            console.log("抬起");
+        }
+        document.getElementById("box").onmousemove = function(){//onmouseover()鼠标移入
+            console.log("移动");
+        }
+    </script>
+
+</body>
+</html>

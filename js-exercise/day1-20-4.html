@@ -4,25 +4,44 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #box{
+        #head{
             height: 100px;
-            width: 100px;
-            background-color: #FF0000;
+            width: 1500px;
+
+        }
+        #bd{
+            height: 700px;
+            width: 1500px;
+            background-image: url("image/bg2.jpg");
         }
     </style>
 </head>
-<body>
-    <div id="box">
-
+<body >
+    <div>
+        <div id="head">
+            <h1 id="id-1">装扮</h1>
+        </div>
+        <div id="bd">
+            <div id="body-son"></div>
+        </div>
     </div>
-    <h1 id="box1">!!</h1>
     <script>
-        document.getElementById("box1").onclick = function () {
-            alert("333333");
-        }
-        document.getElementById("box").onclick = function () {
-            document.write("!!!!!!!");
+        document.getElementById("id-1").onmouseover = function(){
+            document.getElementById("body-son").style.width = "600px";
+            document.getElementById("body-son").style.height = "600px";
         }
     </script>
+    <!--<div id="box">-->
+
+    <!--</div>-->
+    <!--<h1 id="box1">!!</h1>-->
+    <!--<script>-->
+        <!--document.getElementById("box1").onclick = function () {-->
+            <!--alert("333333");-->
+        <!--}-->
+        <!--document.getElementById("box").onclick = function () {-->
+            <!--document.write("!!!!!!!");-->
+        <!--}-->
+    <!--</script>-->
 </body>
 </html>
