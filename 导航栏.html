@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .box{
+            border:1px solid #dddddd ;
+            width:450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .header{
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+        }
+        .header li{
+            float: left;
+            width: 100px;
+            text-align: center;
+        }
+        .header .active{
+            background-color: #dddddd;
+            color: #000000;
+
+        }
+        .bottom div{
+            display: none;
+        }
+        .bottom .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="header" id="nav">
+        <ul class="clearfix">
+            <li class="active">第一课</li>
+            <li>第二课</li>
+            <li>第三课</li>
+        </ul>
+    </div>
+    <div class="bottom" id="content">
+        <div class="active">第一课内容</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</div>
+<script>
+    var aLi = document.getElementById("nav").getElementsByTagName("li");
+    var aDiv = document.getElementById("content").getElementsByTagName("div");
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].className = "";
+                aDiv[j].className = "";
+            }
+            this.className = "active";
+            aDiv[this.index].className = "active";
+        }
+    }
+</script>
+</body>
+</html>

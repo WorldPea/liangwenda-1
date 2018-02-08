@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        body{
+            background: #333333;
+        }
+        .box{
+            width: 492px;
+            height: 170px;
+            margin: 30px auto;
+            border-radius: 10px;
+            background: #ffffff;
+            overflow: hidden;
+            padding: 10px;
+            position: relative;
+        }
+        .radiu-btn{
+            position: absolute;
+        }
+        .radiu-btn li{
+            height: 20px;
+            width: 20px;
+            background-color: #FF9900;
+            opacity: 0.7;
+            filter:alpha(opacity=70);/*为了做兼容性*/
+            float: left;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            color: #dddddd;
+            margin-right: 10px;
+        }
+        .img-bar{
+            height: 170px;
+            overflow: hidden;
+        }
+        .left-btn li{
+            line-height: 17px;
+        }
+        .left-btn{
+            left: 10px;
+            bottom: 10px;
+        }
+        .right-btn{
+            right:10px;
+            bottom: 10px;
+        }
+        .radiu-btn .active{
+            background-color: #f60;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img-bar">
+            <ul>
+                <li><img src="images/psb%20(10).jpg" alt=""></li>
+                <li><img src="images/psb%20(12).jpg" alt=""></li>
+                <li><img src="images/psb%20(17).jpg" alt=""></li>
+                <li><img src="images/psb%20(18).jpg" alt=""></li>
+                <li><img src="images/psb%20(19).jpg" alt=""></li>
+            </ul>
+        </div>
+
+        <div >
+            <ul class="radiu-btn left-btn">
+                <li this-type="prev">&lt;</li>
+                <li this-type="next">&gt;</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="radiu-btn right-btn">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var aUl = document.getElementsByTagName("ul");
+        var aLbt = aUl[1].getElementsByTagName("li");
+        var aRbt = aUl[2].getElementsByTagName("li");
+        var aImg = aUl[0].getElementsByTagName("li");
+        var globalIndex = 0;
+
+        function changeImg(index) {
+            if(index == 5){
+                index = 0;
+                globalIndex = 0;
+            }
+            if(index == -1){
+                index = 4;
+                globalIndex = 4;
+            }
+            console.log(index);
+            for(var j=0;j<aRbt.length;j++){
+                aRbt[j].className = "";
+                aImg[j].style.display = "none";
+            }
+            aRbt[index].className = "active";
+            aImg[index].style.display = "block";
+        }
+
+        for(var i=0;i<aRbt.length;i++) {
+            aRbt[i].index = i;
+            aRbt[i].onmouseover = function () {
+                globalIndex = this.index;
+                changeImg(globalIndex);
+            }
+        }
+
+        for(var k=0;k<aLbt.length;k++){
+            aLbt[k].onclick = function () {
+                var thisType = this.getAttribute("this-type");
+                if(thisType == "next") {
+                    changeImg(++globalIndex);
+                }else{
+                    changeImg(--globalIndex);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

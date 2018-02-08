@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test{
+            position: absolute;
+            width: 400px;height: 400px;background-color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <script>
+        var oDiv = document.getElementById("test");
+        oDiv.onmousedown = function (e) {
+            var this_x = e.clientX - this.offsetLeft;
+            var this_y = e.clientY - this.offsetTop;
+            console.log("第一个"+e);
+            document.onmousemove = function (e) {
+                oDiv.style.left = e.clientX - this_x + "px";
+                oDiv.style.top = e.clientY - this_y + "px";
+                console.log("第二个"+e);
+            }
+            oDiv.onmouseup = function () {
+                document.onmousemove = null;
+                console.log("第三个"+e);
+            }
+        }
+    </script>
+</body>
+</html>

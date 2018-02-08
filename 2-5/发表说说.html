@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #big_box{
+            width: 500px;
+            margin: 100px auto;
+        }
+        #small_box{
+            position: relative;
+            background: #CCC;
+            padding: 10px;
+            height: 152px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px #ccc;
+        }
+        #text{
+            width: 100%;
+            height: 80px;
+            resize: none;
+        }
+        #big_box #small_box .pic img{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            display: block;
+            width:30px;
+            height: 30px;
+            background: #fff;
+            padding: 5px;
+            border: 2px solid #999;
+            cursor: crosshair;
+        }
+        .on{
+            display: block;
+        }
+        .btn{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 100px;
+            height: 42px;
+            background: orangered;
+            font: 16px/42px "";
+            color: #fff;
+            text-align: center;
+            cursor: crosshair;
+            border-radius: 5px;
+        }
+        #big_box #list{
+            list-style: none;
+        }
+        #big_box #list li img{
+            width: 30px;
+            height: 30px;
+            border: 2px solid #999;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        #big_box #list span{
+            vertical-align: top;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="big_box">
+        <div id="small_box">
+            <textarea name="" id="text" cols="30" rows="10"></textarea>
+            <div class="pic">
+                <img src="../images/x1.jpg" id="img1"alt="">
+                <img src="../images/x2.jpg" id="img2" alt="">
+            </div>
+            <p class="btn" id="btn">发表</p>
+        </div>
+        <ul id="list"></ul>
+    </div>
+    <script>
+       var oImg1 = document.getElementById("img1");
+       var oImg2 = document.getElementById("img2");
+       var oText = document.getElementById("text");
+       var oBtn = document.getElementById("btn");
+       var oUl = document.getElementById("list");
+       var imgSrc = oImg1.src;
+
+       oImg1.onclick = function () {
+           this.className = "";
+           oImg2.className = "on";
+           imgSrc = oImg2.src;
+       }
+       oImg2.onclick = function () {
+           this.className = "";
+           oImg1.className = "on";
+           imgSrc = oImg1.src;
+       }
+       oBtn.onclick = function () {
+           if(oText.value){
+               oUl.innerHTML += "<li><img src='"+imgSrc+"' alt=''><span>"+oText.value+"</span></li>"
+           }
+           oText.value = "";
+       }
+    </script>
+</body>
+</html>
+
+
