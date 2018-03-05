@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .banner{
+            position: relative;
+            width: 800px;
+            height: 450px;
+            margin: 100px auto;
+            box-shadow: 0 0 10px 0 #000;
+        }
+        .banner .pic a img{
+            position: absolute;
+            width: 800px;
+            height: 450px;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .banner .pic a img.on{
+            opacity: 1;
+        }
+        .banner .btn p{
+            position: absolute;
+            cursor: pointer;
+            width: 55px;
+            height: 55px;
+            top: calc(50% - 27px);
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <div class="pic">
+        <a href="">
+            <img class="on" src="images/0.jpg" alt="">
+        </a>
+        <a href="">
+            <img src="images/1(1).jpg" alt="">
+        </a>
+        <a href="">
+            <img src="images/2.jpg" alt="">
+        </a>
+        <a href="">
+            <img src="images/3.jpg" alt="">
+        </a>
+        <a href="">
+            <img src="images/4.jpg" alt="">
+        </a>
+    </div>
+    <div class="btn">
+        <button>
+            <p class="left"></p>
+            <p class="right"></p>
+        </button>
+    </div>
+
+   <ol class="dot">
+       <li>1</li>
+       <li>2</li>
+       <li>3</li>
+       <li>4</li>
+       <li>5</li>
+   </ol>
+</div>
+</body>
+</html>
