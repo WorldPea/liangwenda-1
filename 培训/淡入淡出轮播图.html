@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        ul,ol{list-style-type: none}
         *{margin: 0;padding: 0;}
         .banner{
             position: relative;
@@ -31,6 +32,37 @@
             height: 55px;
             top: calc(50% - 27px);
         }
+        .banner .btn p：hover{
+            opacity: 0.7;
+        }
+        .banner .btn p:nth-child(1){
+            left: 10px;
+            background: url("images/btnL.png");
+        }
+        .banner .btn p:nth-child(2){
+            right: 10px;
+            background: url("images/btnR.png");
+        }
+        .banner ol{
+            position: absolute;
+            bottom: 10px;
+            left: calc(50% - 100px);
+        }
+        .banner ol li{
+            float: left;
+            width: 30px;
+            height: 30px;
+            font: bold  20px/30px "";
+            color: #fff;
+            text-align: center;
+            background: #cccccc;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .banner ol li.on{
+            background: orangered;
+        }
     </style>
 </head>
 <body>
@@ -53,19 +85,55 @@
         </a>
     </div>
     <div class="btn">
-        <button>
-            <p class="left"></p>
-            <p class="right"></p>
-        </button>
+        <p class="left"></p>
+        <p class="right"></p>
     </div>
 
    <ol class="dot">
-       <li>1</li>
+       <li class="on">1</li>
        <li>2</li>
        <li>3</li>
        <li>4</li>
        <li>5</li>
    </ol>
 </div>
+<script>
+    var aBtn = document.querySelectorAll(".banner .btn p");
+    var aImg = document.querySelectorAll(".banner .pic img");
+    var aDot = document.querySelectorAll(".banner .dot li");
+    var index = 0;
+    aBtn[1].onclick = function () {
+            aImg[index].className = "";
+            index++;
+            if(index>4) index=0;
+            aImg[index].className = "on";
+        changeDot(index);
+        }
+    aBtn[0].onclick = function () {
+        aImg[index].className = "";
+        index--;
+        if(index<0) index=4;
+        aImg[index].className = "on";
+        changeDot(index);
+    }
+    function changeDot(m){
+        for(var i=0;i<aDot.length;i++){
+            aDot[i].className = "";
+        }
+        aDot[m].className = "on";
+    }
+    function change(m){
+        aDot[m].onclick = function () {
+            aImg[m].className = "on";
+            changeDot(m);
+            aImg[index].className = "";
+            aDot[index].className = "";
+            index=m;
+        }
+    }
+    for(var j=0;j<aDot.length;j++){
+        change(j);
+    }
+</script>
 </body>
 </html>
