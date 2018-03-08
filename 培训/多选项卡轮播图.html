@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, ol{
+            list-style-type: none;
+        }
+        a{border: none;text-decoration: none;color: inherit}
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .wrap .side{
+            float: left;
+            width: 120px;
+        }
+        .wrap .side p{
+            width: 120px;
+            height: 40px;
+            background: #cccccc;
+            margin-bottom: 36px;
+            font: bold 20px/40px "";
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 0 10px 0 #FF0000;
+            cursor: pointer;
+        }
+        .wrap .side p.on{
+            background: #0000FF;
+        }
+        .wrap .main-body{
+            position: relative;
+            float: left;
+            width: 480px;
+            height: 270px;
+        }
+        .wrap .main-body img{
+            left: 0;
+            top:0;
+            width: 480px;
+            opacity: 0;
+            position: absolute;
+            transition: 0.5s;
+        }
+        .wrap .main-body img.on{
+            opacity: 1;
+        }
+        .wrap .banner{
+            display: none;
+        }
+        .wrap .banner.on{
+            display: block;
+        }
+        .wrap .banner ol{
+            position: absolute;
+            bottom: 10px;
+        }
+        .wrap .banner ol li{
+            float: left;
+            height: 30px;
+            width: 30px;
+            margin: 0 5px;
+            background: #cccccc;
+            border-radius: 50%;
+            font: bold 20px/30px "";
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 0 10px 0 #000 ;
+            cursor: pointer;
+        }
+        .wrap .banner ol li.on{
+            background: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="side">
+        <p class="on">选项卡一</p>
+        <p>选项卡二</p>
+        <p>选项卡三</p>
+        <p>选项卡四</p>
+    </div>
+    <div class="main-body">
+        <div class="banner on">
+            <div class="pic">
+                <a href="">
+                    <img class="on" src="images/2.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/3.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/4.jpg" alt="">
+                </a>
+            </div>
+            <ol class="dot">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
+        </div>
+        <div class="banner">
+            <div class="pic">
+                <a href="">
+                    <img class="on" src="images/3.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/2.jpg" alt="">
+                </a>
+            </div>
+            <ol class="dot1">
+                <li>1</li>
+                <li>2</li>
+            </ol>
+        </div>
+        <div class="banner">
+            <div class="pic">
+                <a href="">
+                    <img class="on" src="images/4.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/5.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/6.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/3.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/2.jpg" alt="">
+                </a>
+            </div>
+            <ol class="dot2">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ol>
+        </div>
+        <div class="banner">
+            <div class="pic">
+                <a href="">
+                    <img class="on" src="images/6.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/5.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/6.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/3.jpg" alt="">
+                </a>
+                <a href="">
+                    <img src="images/2.jpg" alt="">
+                </a>
+            </div>
+            <ol class="dot3">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script>
+    var aSide = document.querySelectorAll(".side p");
+    var aBanner = document.querySelectorAll(".banner");
+    var aImg = aBanner[0].querySelectorAll(".pic img");
+    var aDot = aBanner[0].querySelectorAll("ol li");
+    var length = aDot.length;
+    change(0,aImg,aDot,length);
+    for(var i=0;i<aSide.length;i++){
+        (function (m) {
+            aSide[m].onclick = function () {
+                var aImg = aBanner[m].querySelectorAll(".pic img");
+                var aDot = aBanner[m].querySelectorAll("ol li");
+                var length = aDot.length;
+                for(var j=0;j<aSide.length;j++){
+                    aSide[j].className = "";
+                    aBanner[j].className = "banner";
+                }
+                aSide[m].className = "on";
+                aBanner[m].className = "banner on";
+                change(m,aImg,aDot,length);
+            }
+        })(i);
+    }
+    function change(m,img,dot,length) {
+        /*定时器*/
+        var index = 0;
+        setInterval(move,2000);
+        function move() {
+            img[index].className = "";
+            index++;
+            if(index>length -1) index=0;
+            img[index].className = "on";
+            for(var i=0;i<length;i++){
+                dot[i].className = "";
+            }
+            dot[index].className = "on";
+        }
+        /*给小圆点添加点击事件*/
+        for(var i=0;i<length;i++){
+            (function (n) {
+                dot[n].onclick = function () {
+                    for(var j=0;j<length;j++){
+                        img[j].className = "";
+                        dot[j].className = "";
+                    }
+                    img[n].className = "on";
+                    dot[n].className = "on";
+                }
+            })(i)
+        }
+
+    }
+</script>
+</body>
+</html>
