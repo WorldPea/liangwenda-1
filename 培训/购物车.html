@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        ul,ol{list-style: none}
+        a{border: none;text-decoration: none;color: inherit}
+        .container{
+            width: 1000px;
+            margin: 100px auto;
+            box-shadow: 0 0 10px 0 #000;
+        }
+        ul{
+           display: flex;
+        }
+        .title li,.bottom li{
+            width: 249px;
+            border-left: 1px solid #ccc;
+            background: #cc3366;
+            padding: 7px 0;
+            font-size: 16px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .shopping li{
+            width: 249px;
+            height: 100px;
+            border: 1px solid #cccccc;
+        }
+        .shopping li:nth-child(2){
+            border-left: none;
+            border-right: none;
+        }
+        .shopping li:nth-child(4){
+            border-right: none;
+            border-left: none;
+        }
+        .shopping li:nth-child(2),
+        .shopping li:nth-child(4){
+            text-align: center;
+            color: #cc3366;
+            line-height: 102px;
+        }
+        .pic1{
+            background: url("images/shop1.jpg") no-repeat center / contain;
+        }
+        .pic2{
+            background: url("images/shop2.jpg") no-repeat center / contain;
+        }
+        .pic3{
+            background: url("images/shop3.jpg") no-repeat center / contain;
+        }
+        .pic4{
+            background: url("images/shop4.jpg") no-repeat center / contain;
+        }
+        .shopping .wrap{
+            display: flex;
+            width: 120px;
+            height: 40px;
+            margin: 30px auto;
+        }
+        .shopping .wrap .reduce,
+        .shopping .wrap .add{
+            width: 40px;
+            height: 40px;
+            background: #cc3366;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+        .shopping .wrap .number{
+            width: 40px;
+            height: 38px;
+            color: #cc3366;
+            text-align: center;
+            line-height: 40px;
+            border-top: 1px solid #cc3366;
+            border-bottom: 1px solid #cc3366;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="title">
+        <li>商品</li>
+        <li>单价</li>
+        <li>数量</li>
+        <li>小计</li>
+    </ul>
+    <ul class="shopping">
+        <li class="pic1"></li>
+        <li class="price">10</li>
+        <li>
+            <div class="wrap">
+                <p class="reduce">-</p>
+                <div class="number">0</div>
+                <p class="add">+</p>
+            </div>
+        </li>
+        <li class="count">0</li>
+    </ul>
+    <ul class="shopping">
+        <li class="pic2"></li>
+        <li class="price">20</li>
+        <li>
+            <div class="wrap">
+                <p class="reduce">-</p>
+                <div class="number">0</div>
+                <p class="add">+</p>
+            </div>
+        </li>
+        <li class="count">0</li>
+    </ul>
+    <ul class="shopping">
+        <li class="pic3"></li>
+        <li class="price">30</li>
+        <li>
+            <div class="wrap">
+                <p class="reduce">-</p>
+                <div class="number">0</div>
+                <p class="add">+</p>
+            </div>
+        </li>
+        <li class="count">0</li>
+    </ul>
+    <ul class="shopping">
+        <li class="pic4"></li>
+        <li class="price">40</li>
+        <li>
+            <div class="wrap">
+                <p class="reduce">-</p>
+                <div class="number">0</div>
+                <p class="add">+</p>
+            </div>
+        </li>
+        <li class="count">0</li>
+    </ul>
+    <ul class="bottom">
+        <li></li>
+        <li></li>
+        <li class="select">
+            已选中商品
+            <span style="color: gold">0</span>
+            个
+        </li>
+        <li class="total">
+            合计费用￥
+            <span style="color: gold">0</span>
+        </li>
+    </ul>
+</div>
+<script>
+    var aRe = document.querySelectorAll(".reduce");
+    var aAdd = document.querySelectorAll(".add");
+    var aNum = document.querySelectorAll(".number");
+    var aCount = document.querySelectorAll(".count");
+    var aPrice = document.querySelectorAll(".price");
+    var oSe = document.querySelector(".select span");
+    var oTo =document.querySelector(".total span");
+    var number = [];
+
+    for(var i=0;i<aAdd.length;i++){
+        aAdd[i].index = i;
+        aRe[i].index = i;
+        number[i] = 0;
+        aAdd[i].onclick = function () {
+            number[this.index]++;
+            change(this.index);
+        }
+        aRe[i].onclick = function () {
+//            if(number[this.index] == 0){
+//                number[this.index] = 0;
+//            }else{
+//                number[this.index]--;
+//            }
+            number[this.index] = number[this.index] == 0 ? 0 : --number[this.index];
+            change(this.index);
+        }
+    }
+    function change(This){
+        aNum[This].innerHTML = number[This];
+        aCount[This].innerHTML = number[This]*parseFloat(aPrice[This].innerHTML);
+        var totalNum = 0;
+        var totalPrice = 0;
+        for(var i=0;i<number.length;i++){
+            totalNum += number[i];
+            totalPrice += parseFloat(aCount[i].innerHTML);
+        }
+        oSe.innerHTML = totalNum;
+        oTo.innerHTML = totalPrice;
+    }
+</script>
+</body>
+</html>
