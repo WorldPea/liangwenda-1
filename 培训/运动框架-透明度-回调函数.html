@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        ul,ol{
+            text-decoration: none;
+        }
+        a{border: none;text-decoration: none;color: inherit}
+        div{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: #FF0000;
+        }
+    </style>
+</head>
+<body>
+<div>
+</div>
+<script src="js/animate.0.1.0.js"></script>
+<script>
+    var oDiv = document.querySelector("div");
+
+    animate(oDiv,{"left":"800px","top":"600px","opacity":0.5},3000,function (){
+        alert("!");
+        /*由于animate()函数里写有callBack.call(obj)  即call()函数是将this变为obj*/
+        this.style.background = "deeppink";
+    });
+
+</script>
+</body>
+</html>
