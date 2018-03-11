@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        a{border: none;text-decoration: none;color: inherit;}
+        ul,ol{list-style: none;}
+        div{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            top: 100px;
+            height: 100px;
+            background: #FF0000;
+            box-shadow: 0 0 10px 0 #0000FF;
+        }
+    </style>
+</head>
+<body>
+<div>
+</div>
+<button>开始</button>
+<button>暂停</button>
+<button>重置</button>
+<script>
+    var oDiv = document.querySelector("div");
+    var leftNow = 0;
+    var topNow = 100;
+    var aBtn = document.querySelectorAll("button");
+    var timer ;
+    aBtn[0].onclick = function () {
+        timer = setInterval(function () {
+            leftNow += 10;
+            topNow +=10;
+            oDiv.style.left = leftNow + "px";
+            oDiv.style.top = topNow + "px";
+        },50)
+    }
+    aBtn[1].onclick = function () {
+        clearInterval(timer);
+    }
+    aBtn[2].onclick = function () {
+        clearInterval(timer);
+        leftNow = 0;
+        topNow =100;
+        oDiv.style.left = leftNow + "px";
+        oDiv.style.top = topNow + "px";
+    }
+
+</script>
+</body>
+</html>

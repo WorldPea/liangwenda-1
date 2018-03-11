@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,ol{list-style: none}
+        *{margin: 0;padding: 0}
+        a{border:none;text-decoration: none;color:inherit}
+        div{
+            font-size: 30px;
+            margin-top: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div>
+    距离愚人节倒计时：
+</div>
+<script>
+    var oDiv =document.querySelector("div");
+
+    setInterval(time,1000);
+    function time() {
+        var date =new Date(2018,3,1,0,0);
+        var dateNow = new Date();
+        var sum = date - dateNow;
+        var days = Math.floor(sum/1000/60/60/24);
+        var hours = Math.floor(sum/1000/60/60)%24;
+        var minutes = Math.floor(sum/1000/60)%60;
+        var seconds =Math.floor(sum/1000)%60;
+        oDiv.innerHTML = "距离愚人节倒计时:"+change(days)+"天"+change(hours)+"时"
+            +change(minutes)+"分"+change(seconds)+"秒";
+        function change(num) {
+            return num>=10 ? num : "0"+num;
+        }
+    }
+</script>
+</body>
+</html>
