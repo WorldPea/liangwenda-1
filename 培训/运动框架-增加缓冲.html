@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        ul, ol { list-style: none;}
+        a {border: none;text-decoration: none;color: inherit;}
+        * {margin: 0;padding: 0;}
+        div{
+            position: absolute;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background: #153170;
+        }
+        .box{
+            top: 10px;
+        }
+        .box1{
+            top: 120px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+<div class="box1"></div>
+<script src="js/animate.0.1.2.js"></script>
+<script>
+    /*
+     * animate(oBox,{"left": 700,"top": 250},3000)
+     * */
+    var oBox = document.querySelector(".box");
+    var oBox1 = document.querySelector(".box1");
+    animate(oBox,{"left": "800px","top": "222px"},3000,"Linear");  //缓冲
+    animate(oBox1,{"left": "800px","top": "333px"},3000,"BounceEaseOut",test);  //函数重载
+    function test() {
+        console.log("这是个测试！");
+    }
+</script>
+</body>
+</html>
