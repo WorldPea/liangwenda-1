@@ -27,6 +27,7 @@ function animate(obj,targetJSON,time,TweenString,callBack){
             case "function":
                 callBack = arguments[3];
                 TweenString = "Linear";
+                break;
         }
     }
     var startJSON = {};

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = new Array();   //这个是想改的数组，为了方便直接用一个循环赋的0-50的值
+    for(var i=0;i<50;i++){
+        arr.push(i);
+    }
+    var arrSon = new Array();
+    for(var j=0;j<6;j++){     //六个数组
+        arrSon[j] = new Array();
+    }
+    var index = 50;
+    while(index > 2){
+        var redom = Math.floor(Math.random()*index);   //生成0-49的随机数
+        var redomSon = Math.floor(Math.random()*6);   //生成0-5的随机数用于实现随机取用六个数组中某个数组
+        if(arrSon[redomSon].length === 8){
+            continue;
+        }else{
+            var a = arr.splice(redom,1);  //删除并返回arr数组里下标为redom的元素，用a接收
+            arrSon[redomSon].push(a);      //将a压入arrSon这个二维数组
+            index--;
+        }
+    }
+    var flag = 0;
+    while (flag < 2){
+        flag++;
+        var redomSon = Math.floor(Math.random()*6);   //生成0-5的随机数用于实现随机取用六个数组中某个数组
+        var a = arr.splice(flag,1);
+        arrSon[redomSon].push(a);
+    }
+    for(var j=0;j<6;j++){
+        console.log(arrSon[j]);
+    }
+</script>
+</body>
+</html>
