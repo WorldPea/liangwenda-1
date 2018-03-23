@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.baidu.com" id="link">百度</a>
+<script>
+    var link = document.getElementById("link");
+    link.addEventListener("click", fn, false);
+    function fn(e) {
+
+        e.preventDefault();
+        //若用return false; 不起作用，若用link.onclick = function();return false可以阻止
+    }
+</script>
+</body>
+</html>

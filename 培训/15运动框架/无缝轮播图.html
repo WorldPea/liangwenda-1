@@ -105,35 +105,37 @@
         </div>
     </div>
 </div>
-<script src="../js/animate.0.1.2.js"></script>
+<script src="../js/animate.0.1.3.js"></script>
 <script>
     var aBtn = document.querySelectorAll(".btn p");
     var oUl = document.querySelector(".pic ul");
     var aLi = document.querySelectorAll(".pic ul li");
     var aDot = document.querySelectorAll(".dot ol li");
+    var oBanner = document.querySelector(".banner");
     var length = aLi.length;
     var index = 0;  //索引
     /*给右按钮添加点击事件*/
+    oUl.appendChild(aLi[0].cloneNode(true));
+    var timer = setInterval(banner,3000);
+    oBanner.onmouseenter = function () {
+        clearInterval(timer);
+    };
+    oBanner.onmouseleave = function () {
+        timer = setInterval(banner,3000);
+    };
     aBtn[1].onclick = function () {
-        index++;
-        animate(oUl,{"left": -800*index},1000,function () {
-            if(index === length){
-                index = 0;
-                oUl.style.left = 0;
-            }
-        });
-        change(index);
+            banner();
     };
     aBtn[0].onclick = function () {
+        if(oUl.isanimate)return;
         index--;
-        animate(oUl,{"left": -800*index},1000,function () {
-            if(index < 0){
-                index = length - 1;
-                oUl.style.left = -800*index + "px";
-            }
-        });
+        if(index < 0){
+            oUl.style.left = -800 * length + "px";
+            index = length - 1;
+        }
+        animate(oUl,{"left": -800*index},1000);
         change(index);
-    }
+    };
     /*给按钮添加点击事件*/
     for( var i=0; i<length; i++ ){
         (function (m) {
@@ -146,14 +148,21 @@
     }
 
     function change(idx) {
-        console.log(idx);
-        if(idx === length){
-            idx = 0;
-        }else if(idx < 0)idx = length - 1;
         for( var i=0; i<length; i++ ){
             aDot[i].className = "";
         }
         aDot[idx].className = "on";
+    }
+    function banner() {
+        if(oUl.isanimate)return;
+        index++;
+        animate(oUl,{"left": -800*index},1000,function () {
+            if(index === length){
+                index = 0;
+                oUl.style.left = 0;
+            }
+            change(index);
+        });
     }
 </script>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, ol { list-style: none;}
+        a {border: none;text-decoration: none;color: inherit;}
+        * {margin: 0;padding: 0;}
+        .box{
+            position: relative;
+            width: 700px;
+            height: 450px;
+            color: green;
+            overflow: hidden;
+            margin: 100px auto;
+            box-shadow: 0 0 10px 0 #000;
+        }
+        .content{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 90%;
+            padding: 20px;
+        }
+        .content p::selection{
+            background: deeppink;
+            color: #fff;
+        }
+        h2{
+            line-height: 70px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="content" style="top: 0px;">
+        <h2>English</h2>
+        <p>Every single time you access a website, you leave tracks. Tracks that others can access. If you don't like the idea, find out what software can help you cover them.
+        </p><br>
+        <p>Anti Tracks</p><br>
+        <p>Anti Tracks is a complete solution to protect your privacy and enhance your PC performance. With a simple click Anti Tracks securely erase your internet tracks, computer activities and programs history information stored in many hidden files on your computer.Anti Tracks support Internet Explorer, AOL, Netscape/Mozilla and Opera browsers. </p><br>
+        <p>It also include more than 85 free plug-ins to extend erasing features to support popular programs such as ACDSee, Acrobat Reader, KaZaA, PowerDVD, WinZip, iMesh, Winamp and much more. Also you can easily schedule erasing tasks at specific time intervals or at Windows stat-up/ shutdown.To ensure maximum privacy protection Anti Tracks implements the US Department of Defense DOD 5220.22-M, Gutmann and NSA secure erasing methods, making any erased files unrecoverable even when using advanced recovery tools.</p><br>
+        <p>Every single time you access a website, you leave tracks. Tracks that others can access. If you don't like the idea, find out what software can help you cover them.
+        </p><br>
+        <p>Anti Tracks</p><br>
+        <p>Anti Tracks is a complete solution to protect your privacy and enhance your PC performance. With a simple click Anti Tracks securely erase your internet tracks, computer activities and programs history information stored in many hidden files on your computer.Anti Tracks support Internet Explorer, AOL, Netscape/Mozilla and Opera browsers. </p><br>
+        <p>It also include more than 85 free plug-ins to extend erasing features to support popular programs such as ACDSee, Acrobat Reader, KaZaA, PowerDVD, WinZip, iMesh, Winamp and much more. Also you can easily schedule erasing tasks at specific time intervals or at Windows stat-up/ shutdown.To ensure maximum privacy protection Anti Tracks implements the US Department of Defense DOD 5220.22-M, Gutmann and NSA secure erasing methods, making any erased files unrecoverable even when using advanced recovery tools.</p>
+
+    </div>
+</div>
+<script src="scrollBar.js"></script>
+<script>
+    var oBox = document.querySelector(".box");
+    var oContent = document.querySelector(".content");
+    scrollBar(oBox,oContent);
+</script>
+</body>
+</html>

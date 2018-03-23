@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, ol { list-style: none;}
+        a {border: none;text-decoration: none;color: inherit;}
+        * {margin: 0;padding: 0;}
+        body{
+            height: 3000px;
+        }
+        div{
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="ul">
+        <li>我是第1个li标签</li>
+        <li>我是第2个li标签</li>
+        <li>我是第3个li标签</li>
+        <li>我是第4个li标签</li>
+    </ul>
+
+<input type="button" value="insertLi" id="btn">
+<script>
+    var ul = document.getElementById("ul");
+    var btn = document.getElementById("btn");
+    var aLi = document.querySelectorAll("#ul li");
+
+    //把本来应该给li注册的事件，委托给ul，只需要给一个元素注册事件
+    //动态创建的li，也会执行预期的效果
+    ul.addEventListener("click", test, false);     //注册点击事件
+    btn.onclick = function () {     //点击同样会有alert
+        var li = document.createElement("li");
+        li.innerHTML = "我是新插入的li标签";
+        ul.appendChild(li);
+    };
+    //函数写在注册事件代码之外，提高性能
+    function test(e) {
+        alert(e.target.innerText);
+    }
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, ol { list-style: none;}
+        a {border: none;text-decoration: none;color: inherit;}
+        * {margin: 0;padding: 0;}
+        p{
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+</div>
+<script>
+    var oBox = document.querySelector(".box");
+    var stepX = [];
+    var stepY = [];
+    for(var i=0;i<10;i++){
+        oBox.appendChild(document.createElement("p"));
+        stepX[i] = 5+i/2;
+        stepY[i] = 5+i/2;
+    }
+    var aP = oBox.querySelectorAll("p");
+    var maxLeft = document.documentElement.clientWidth - aP[0].clientWidth;
+    var maxTop = document.documentElement.clientHeight - aP[0].clientHeight;
+    setInterval(function () {
+        for(var i=0;i<aP.length;i++){
+            var startX = aP[i].offsetLeft;
+            var startY = aP[i].offsetTop;
+
+            var left = startX + stepX[i];
+            var top = startY+ stepY[i];
+            if(left<0 || left>maxLeft){
+                left = Math.max(left,0);
+                left = Math.min(left,maxLeft);
+                stepX[i] = -stepX[i];
+                change(i);
+            }
+            if(top<0 || top>maxTop){
+                top = Math.max(top,0);
+                top = Math.min(top,maxTop);
+                stepY[i] = -stepY[i];
+                change(i);
+            }
+            aP[i].style.left = left + "px";
+            aP[i].style.top = top + "px";
+        }
+    },20)
+    function change(m) {
+        var r = Math.floor(Math.random()*256);
+        var g = Math.floor(Math.random()*256);
+        var b = Math.floor(Math.random()*256);
+        aP[m].style.background = "rgb("+r+","+g+","+b+")"
+    }
+</script>
+</body>
+</html>

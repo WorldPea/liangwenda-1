@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        div{
+            flex-wrap: wrap;
+            display: flex;
+            position: relative;
+            height: 1000px;
+            width: 1000px;
+            margin: 100px auto;
+        }
+        div p{
+            background: #9999;
+            height: 100px;
+            width: 100px;
+            margin: 0 5px;
+            overflow: hidden;
+        }
+        div p::selection{
+            background: deeppink;
+            color: blue;
+        }
+        div button{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <p>啊防守打法ad不奋斗吧</p>
+    <button>添加小块</button>
+</div>
+<script>
+    var oBox = document.querySelector(".box");
+    var oBtn = document.querySelector(".box button");
+    var aP = document.querySelectorAll(".box p");
+    oBox.onclick = function (e) {   //事件委托
+        e = e || window.event;
+        if(e.target.tagName === "P")e.target.style.background = "deeppink";
+        /*
+        console.log(e.currentTarget);
+        console.log(e.target);
+        console.log(e.target.tagName);
+        console.log(typeof e.target.tagName);
+        */
+    };
+    oBtn.onclick = function () {
+        var p = document.createElement("p");
+        oBox.appendChild(p);
+    }
+
+
+</script>
+</body>
+</html>

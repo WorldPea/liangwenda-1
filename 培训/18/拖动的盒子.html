@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        div{
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            border-style: solid;
+            box-shadow: 0 0 10px 0 #000;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+</div>
+<script>
+var oDiv = document.querySelector("div");
+var maxLeft = document.documentElement.clientWidth - oDiv.clientWidth;
+var maxTop = document.documentElement.clientHeight - oDiv.clientHeight;
+document.onmousedown = function (ev) {
+    ev = ev || window.event;
+    var startX = oDiv.offsetLeft;
+    var startY = oDiv.offsetTop;
+    var clientX = ev.clientX;
+    var clientY = ev.clientY;
+    document.onmousemove = function (ev) {
+        ev = ev || window.event;
+        var deltaX = ev.clientX - clientX;
+        var deltaY = ev.clientY - clientY;
+        var left = startX + deltaX;
+        var top = startY + deltaY;
+
+        left = Math.max(left,0);
+        left = Math.min(left,maxLeft);
+
+        top = Math.max(top,0);
+        top = Math.min(top,maxLeft);
+
+        oDiv.style.left = left +"px";
+        oDiv.style.top = top +"px";
+    }
+}
+document.onmouseup = function () {
+    document.onmousemove = null;
+}
+</script>
+</body>
+</html>
